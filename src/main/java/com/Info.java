@@ -1,6 +1,7 @@
 package com;
 
 import app.LocaleExplorer;
+import helpers.RestUtil;
 
 import java.text.DateFormat;
 import java.text.DateFormatSymbols;
@@ -34,6 +35,8 @@ public class Info extends Command {
         String[] months = new DateFormatSymbols(locale).getMonths();
         System.out.println("Months: " + Arrays.toString(months));
         System.out.println("Today: " + DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.SHORT, locale).format(new Date()));
+        System.out.println("Capital: " + RestUtil.getCapitalByCountryCode(locale.getISO3Country()));
+        System.out.println("Continent: " + RestUtil.getContinentByCountryCode(locale.getISO3Country()));
     }
 
     @Override
